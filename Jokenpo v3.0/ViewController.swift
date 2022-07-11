@@ -17,6 +17,7 @@ class ViewController: UIViewController {
         label.text = "JOKENPO"
         label.textColor = .label
         label.textAlignment = .center
+        label.textColor = .white()
         label.font = UIFont.systemFont(ofSize: 40, weight: .bold)
         return label
     }()
@@ -27,6 +28,7 @@ class ViewController: UIViewController {
         label.text = "Vitórias do Jogador: 0"
         label.textColor = .label
         label.textAlignment = .right
+        label.textColor = .white()
         label.font = UIFont.systemFont(ofSize: 18, weight: .medium)
         return label
     }()
@@ -37,6 +39,7 @@ class ViewController: UIViewController {
         label.text = "Empates: 0"
         label.textColor = .label
         label.textAlignment = .right
+        label.textColor = .white()
         label.font = UIFont.systemFont(ofSize: 18, weight: .medium)
         return label
     } ()
@@ -47,6 +50,7 @@ class ViewController: UIViewController {
         label.text = "Vitórias da CPU: 0"
         label.textColor = .label
         label.textAlignment = .right
+        label.textColor = .white()
         label.font = UIFont.systemFont(ofSize: 18, weight: .medium)
         return label
     } ()
@@ -57,6 +61,7 @@ class ViewController: UIViewController {
         label.text = "Resultado"
         label.textColor = .label
         label.textAlignment = .left
+        label.textColor = .white()
         label.font = UIFont.systemFont(ofSize: 28, weight: .bold)
         return label
     } ()
@@ -67,6 +72,7 @@ class ViewController: UIViewController {
         label.text = "Jogador"
         label.textColor = .label
         label.textAlignment = .center
+        label.textColor = .white()
         label.font = UIFont.systemFont(ofSize: 22, weight: .bold)
         return label
     }()
@@ -77,6 +83,7 @@ class ViewController: UIViewController {
         label.text = "CPU"
         label.textColor = .label
         label.textAlignment = .center
+        label.textColor = .white()
         label.font = UIFont.systemFont(ofSize: 22, weight: .bold)
         return label
     }()
@@ -108,10 +115,10 @@ class ViewController: UIViewController {
         stackView.distribution = .equalCentering
         stackView.backgroundColor = .red
         stackView.layer.cornerRadius = 5
+        stackView.backgroundColor = .lightBlue()
         stackView.translatesAutoresizingMaskIntoConstraints = false
         return stackView
     }()
-    
     
     let stoneButton: UIButton = {
         let button = UIButton(type: .custom)
@@ -140,6 +147,7 @@ class ViewController: UIViewController {
         stackView.distribution = .equalCentering
         stackView.backgroundColor = .red
         stackView.layer.cornerRadius = 5
+        stackView.backgroundColor = .lightBlue()
         stackView.translatesAutoresizingMaskIntoConstraints = false
         return stackView
     } ()
@@ -147,7 +155,7 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .systemBlue
+        view.backgroundColor = .darkBlue()
 
         view.addSubviews([titleLabel,
                                     playerScoreLabel,
