@@ -11,12 +11,22 @@ class ViewController: UIViewController {
     
     // MARK: Elementos
     
+    let titleLabel: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.text = "JOKENPO"
+        label.textColor = .label
+        label.textAlignment = .center
+        label.font = UIFont.systemFont(ofSize: 40, weight: .bold)
+        return label
+    }()
+    
     let playerScoreLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.text = "Vitórias do Jogador: 0"
         label.textColor = .label
-        label.textAlignment = .left
+        label.textAlignment = .right
         label.font = UIFont.systemFont(ofSize: 18, weight: .medium)
         return label
     }()
@@ -26,7 +36,7 @@ class ViewController: UIViewController {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.text = "Empates: 0"
         label.textColor = .label
-        label.textAlignment = .left
+        label.textAlignment = .right
         label.font = UIFont.systemFont(ofSize: 18, weight: .medium)
         return label
     } ()
@@ -36,7 +46,7 @@ class ViewController: UIViewController {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.text = "Vitórias da CPU: 0"
         label.textColor = .label
-        label.textAlignment = .left
+        label.textAlignment = .right
         label.font = UIFont.systemFont(ofSize: 18, weight: .medium)
         return label
     } ()
@@ -97,41 +107,80 @@ class ViewController: UIViewController {
         stackView.alignment = .center
         stackView.distribution = .equalCentering
         stackView.backgroundColor = .red
+        stackView.layer.cornerRadius = 5
         stackView.translatesAutoresizingMaskIntoConstraints = false
         return stackView
     }()
+    
+    
+    let stoneButton: UIButton = {
+        let button = UIButton(type: .custom)
+        button.setImage(UIImage(named: "0"), for: .normal)
+        return button
+    } ()
+    
+    let paperButton: UIButton = {
+        let button = UIButton(type: .custom)
+        button.setImage(UIImage(named: "1"), for: .normal)
+        return button
+    } ()
+    
+    let scissorsButton: UIButton = {
+        let button = UIButton(type: .custom)
+        button.setImage(UIImage(named: "2"), for: .normal)
+        return button
+    } ()
+    
+    lazy var buttonStackView: UIStackView = {
+        let stackView = UIStackView(arrangedSubviews: [stoneButton,
+                                                                               paperButton,
+                                                                               scissorsButton])
+        stackView.axis = .horizontal
+        stackView.alignment = .center
+        stackView.distribution = .equalCentering
+        stackView.backgroundColor = .red
+        stackView.layer.cornerRadius = 5
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+        return stackView
+    } ()
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemBlue
 
-        view.addSubviews([playerScoreLabel,
+        view.addSubviews([titleLabel,
+                                    playerScoreLabel,
                                     drawScoreLabel,
                                     cpuScoreLabel,
                                     resultLabel,
                                     playerLabel,
                                     cpuLabel,
-                                    arenaStackView])
+                                    arenaStackView,
+                                    buttonStackView])
         
 //        MARK: Constraints
         
         NSLayoutConstraint.activate([
+            
+            titleLabel.topAnchor.constraint(equalTo: view.layoutMarginsGuide.topAnchor),
+            titleLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            titleLabel.heightAnchor.constraint(equalToConstant: 40),
 
-            playerScoreLabel.topAnchor.constraint(equalTo: view.layoutMarginsGuide.topAnchor, constant: 10),
+            playerScoreLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 20),
             playerScoreLabel.leadingAnchor.constraint(equalTo: view.layoutMarginsGuide.leadingAnchor, constant: 10),
             playerScoreLabel.trailingAnchor.constraint(equalTo: view.layoutMarginsGuide.trailingAnchor, constant: -10),
-            playerScoreLabel.heightAnchor.constraint(equalToConstant: 30),
+            playerScoreLabel.heightAnchor.constraint(equalToConstant: 25),
             
             drawScoreLabel.topAnchor.constraint(equalTo: playerScoreLabel.bottomAnchor),
             drawScoreLabel.leadingAnchor.constraint(equalTo: playerScoreLabel.leadingAnchor),
             drawScoreLabel.trailingAnchor.constraint(equalTo: playerScoreLabel.trailingAnchor),
-            drawScoreLabel.heightAnchor.constraint(equalToConstant: 30),
+            drawScoreLabel.heightAnchor.constraint(equalToConstant: 25),
 
             cpuScoreLabel.topAnchor.constraint(equalTo: drawScoreLabel.bottomAnchor),
             cpuScoreLabel.leadingAnchor.constraint(equalTo: drawScoreLabel.leadingAnchor),
             cpuScoreLabel.trailingAnchor.constraint(equalTo: drawScoreLabel.trailingAnchor),
-            cpuScoreLabel.heightAnchor.constraint(equalToConstant: 30),
+            cpuScoreLabel.heightAnchor.constraint(equalToConstant: 25),
             
             resultLabel.topAnchor.constraint(equalTo: cpuScoreLabel.bottomAnchor, constant: 40),
             resultLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
@@ -160,6 +209,20 @@ class ViewController: UIViewController {
             
             cpuImage.heightAnchor.constraint(equalToConstant: 120),
             cpuImage.widthAnchor.constraint(equalToConstant: 120),
+            
+            buttonStackView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -20),
+            buttonStackView.leadingAnchor.constraint(equalTo: view.layoutMarginsGuide.leadingAnchor, constant: 10),
+            buttonStackView.trailingAnchor.constraint(equalTo: view.layoutMarginsGuide.trailingAnchor, constant: -10),
+            buttonStackView.heightAnchor.constraint(equalToConstant: 120),
+            
+            stoneButton.heightAnchor.constraint(equalToConstant: 100),
+            stoneButton.widthAnchor.constraint(equalToConstant: 100),
+            
+            paperButton.heightAnchor.constraint(equalToConstant: 100),
+            paperButton.widthAnchor.constraint(equalToConstant: 100),
+            
+            scissorsButton.heightAnchor.constraint(equalToConstant: 100),
+            scissorsButton.widthAnchor.constraint(equalToConstant: 100),
         ])
     }
 
