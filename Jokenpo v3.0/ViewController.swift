@@ -9,6 +9,10 @@ import UIKit
 
 class ViewController: UIViewController {
     
+    var playerWins: Int = 0
+    var cpuWins: Int = 0
+    var draw: Int = 0
+    
     // MARK: Elementos
     
     let titleLabel: UILabel = {
@@ -233,6 +237,10 @@ class ViewController: UIViewController {
             scissorsButton.widthAnchor.constraint(equalToConstant: 100),
         ])
     }
+    
+    
+    
+    
 
 
 }
