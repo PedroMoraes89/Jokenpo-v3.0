@@ -7,7 +7,9 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class JokenpoView: UIViewController {
+    
+
     
     var playerWins: Int = 0
     var cpuWins: Int = 0
@@ -104,7 +106,6 @@ class ViewController: UIViewController {
     
     let cpuImage: UIImageView = {
         let image = UIImageView()
-        image.image = UIImage(named: "1")
         return image
     } ()
     
@@ -119,25 +120,25 @@ class ViewController: UIViewController {
         stackView.layer.cornerRadius = 5
         stackView.backgroundColor = .lightBlue()
         stackView.translatesAutoresizingMaskIntoConstraints = false
-//        stackView.isHidden = true
+        stackView.isHidden = true
         return stackView
     }()
     
     let stoneButton: UIButton = {
         let button = UIButton(type: .custom)
-        button.setImage(UIImage(named: "0"), for: .normal)
+        button.setImage(UIImage(named: "pedra"), for: .normal)
         return button
     } ()
     
     let paperButton: UIButton = {
         let button = UIButton(type: .custom)
-        button.setImage(UIImage(named: "1"), for: .normal)
+        button.setImage(UIImage(named: "papel"), for: .normal)
         return button
     } ()
     
     let scissorsButton: UIButton = {
         let button = UIButton(type: .custom)
-        button.setImage(UIImage(named: "2"), for: .normal)
+        button.setImage(UIImage(named: "tesoura"), for: .normal)
         return button
     } ()
     
@@ -241,22 +242,21 @@ class ViewController: UIViewController {
         scissorsButton.addTarget(self, action: #selector(playScissors), for: .touchUpInside)
         
     }
-    
+
     @objc func playStone() {
-        
-        playerImage.image = UIImage(named: "0")
+        playerImage.image = UIImage(named: "pedra")
+        cpuPlay()
     }
     
     @objc func playPaper() {
-        
-        playerImage.image = UIImage(named: "1")
-        
+        playerImage.image = UIImage(named: "papel")
+        cpuPlay()
     }
     
     @objc func playScissors() {
-        
-        playerImage.image = UIImage(named: "2")
-        
+        playerImage.image = UIImage(named: "tesoura")
+        cpuPlay()
     }
+    
 }
 
