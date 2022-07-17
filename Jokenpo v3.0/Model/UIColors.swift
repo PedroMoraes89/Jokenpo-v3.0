@@ -2,7 +2,7 @@
 //  Colors.swift
 //  Jokenpo v3.0
 //
-//  Created by Pedro Moraes (user220265) on 7/11/22.
+//  Created by Pedro Moraes (user220265) on 7/17/22.
 //
 
 import UIKit

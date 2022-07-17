@@ -237,18 +237,5 @@ class ViewController: UIViewController {
             scissorsButton.widthAnchor.constraint(equalToConstant: 100),
         ])
     }
-    
-    
-    
-    
-
-
 }
 
-extension UIView {
-    open func addSubviews(_ views: [UIView]){
-        for view in views {
-            self.addSubview(view)
-        }
-    }
-}
