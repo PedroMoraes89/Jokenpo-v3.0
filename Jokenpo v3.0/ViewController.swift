@@ -93,7 +93,6 @@ class ViewController: UIViewController {
     
     let playerImage: UIImageView = {
         let image = UIImageView()
-        image.image = UIImage(named: "0")
         return image
     } ()
     
@@ -236,6 +235,28 @@ class ViewController: UIViewController {
             scissorsButton.heightAnchor.constraint(equalToConstant: 100),
             scissorsButton.widthAnchor.constraint(equalToConstant: 100),
         ])
+        
+        stoneButton.addTarget(self, action: #selector(playStone), for: .touchUpInside)
+        paperButton.addTarget(self, action: #selector(playPaper), for: .touchUpInside)
+        scissorsButton.addTarget(self, action: #selector(playScissors), for: .touchUpInside)
+        
+    }
+    
+    @objc func playStone() {
+        
+        playerImage.image = UIImage(named: "0")
+    }
+    
+    @objc func playPaper() {
+        
+        playerImage.image = UIImage(named: "1")
+        
+    }
+    
+    @objc func playScissors() {
+        
+        playerImage.image = UIImage(named: "2")
+        
     }
 }
 
