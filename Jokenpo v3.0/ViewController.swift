@@ -62,7 +62,6 @@ class ViewController: UIViewController {
     let resultLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "Resultado"
         label.textColor = .label
         label.textAlignment = .left
         label.textColor = .white()
@@ -121,6 +120,7 @@ class ViewController: UIViewController {
         stackView.layer.cornerRadius = 5
         stackView.backgroundColor = .lightBlue()
         stackView.translatesAutoresizingMaskIntoConstraints = false
+//        stackView.isHidden = true
         return stackView
     }()
     
@@ -175,13 +175,13 @@ class ViewController: UIViewController {
         
         NSLayoutConstraint.activate([
             
-            titleLabel.topAnchor.constraint(equalTo: view.layoutMarginsGuide.topAnchor),
+            titleLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
             titleLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             titleLabel.heightAnchor.constraint(equalToConstant: 40),
 
             playerScoreLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 20),
-            playerScoreLabel.leadingAnchor.constraint(equalTo: view.layoutMarginsGuide.leadingAnchor, constant: 10),
-            playerScoreLabel.trailingAnchor.constraint(equalTo: view.layoutMarginsGuide.trailingAnchor, constant: -10),
+            playerScoreLabel.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 10),
+            playerScoreLabel.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -10),
             playerScoreLabel.heightAnchor.constraint(equalToConstant: 25),
             
             drawScoreLabel.topAnchor.constraint(equalTo: playerScoreLabel.bottomAnchor),
@@ -199,18 +199,18 @@ class ViewController: UIViewController {
             resultLabel.heightAnchor.constraint(equalToConstant: 40),
             
             playerLabel.topAnchor.constraint(equalTo: resultLabel.bottomAnchor, constant: 40),
-            playerLabel.leadingAnchor.constraint(equalTo: view.layoutMarginsGuide.leadingAnchor, constant: 20),
+            playerLabel.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 20),
             playerLabel.heightAnchor.constraint(equalToConstant: 40),
-            playerLabel.widthAnchor.constraint(equalTo: view.layoutMarginsGuide.widthAnchor, multiplier: 0.5, constant: -100),
+            playerLabel.widthAnchor.constraint(equalTo: view.safeAreaLayoutGuide.widthAnchor, multiplier: 0.5, constant: -100),
             
             cpuLabel.topAnchor.constraint(equalTo: resultLabel.bottomAnchor, constant: 40),
-            cpuLabel.trailingAnchor.constraint(equalTo: view.layoutMarginsGuide.trailingAnchor, constant: -20),
+            cpuLabel.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -20),
             cpuLabel.heightAnchor.constraint(equalToConstant: 40),
-            cpuLabel.widthAnchor.constraint(equalTo: view.layoutMarginsGuide.widthAnchor, multiplier: 0.5, constant: -100),
+            cpuLabel.widthAnchor.constraint(equalTo: view.safeAreaLayoutGuide.widthAnchor, multiplier: 0.5, constant: -100),
             
             arenaStackView.topAnchor.constraint(equalTo: playerLabel.bottomAnchor, constant: 10),
-            arenaStackView.leadingAnchor.constraint(equalTo: view.layoutMarginsGuide.leadingAnchor, constant: 10),
-            arenaStackView.trailingAnchor.constraint(equalTo: view.layoutMarginsGuide.trailingAnchor, constant: -10),
+            arenaStackView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 10),
+            arenaStackView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -10),
             arenaStackView.heightAnchor.constraint(equalToConstant: 160),
             
             playerImage.heightAnchor.constraint(equalToConstant: 120),
@@ -223,8 +223,8 @@ class ViewController: UIViewController {
             cpuImage.widthAnchor.constraint(equalToConstant: 120),
             
             buttonStackView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -20),
-            buttonStackView.leadingAnchor.constraint(equalTo: view.layoutMarginsGuide.leadingAnchor, constant: 10),
-            buttonStackView.trailingAnchor.constraint(equalTo: view.layoutMarginsGuide.trailingAnchor, constant: -10),
+            buttonStackView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 10),
+            buttonStackView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -10),
             buttonStackView.heightAnchor.constraint(equalToConstant: 120),
             
             stoneButton.heightAnchor.constraint(equalToConstant: 100),
